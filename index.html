@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO-PLUMB CBR | Professional Plumbing & Gasfitting Canberra</title>
+  <meta name="description" content="Trusted plumbing and gasfitting services in Canberra & NSW. 24/7 emergency plumbing, blocked drains, hot water systems. Call +61 481 068 152">
+  <meta name="keywords" content="Canberra plumber, Emergency plumber Canberra, Plumbing services Canberra, Gas fitting Canberra, Blocked drains Canberra, 24 hour plumber Canberra">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A3D62;
+      --secondary: #0077B6;
+      --accent: #FF7A00;
+      --bg: #F4F7FA;
+      --fg: #1B2838;
+      --card: #FFFFFF;
+      --muted: #5A6C7D;
+      --border: #E2E8F0;
+      --gradient-start: #0A3D62;
+      --gradient-end: #0077B6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Header styles */
+    .header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 4px 20px rgba(10, 61, 98, 0.1);
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--fg);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Button styles */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #E66A00);
+      color: white;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 122, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      border: 2px solid white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 122, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Service cards */
+    .service-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.4s ease;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(10, 61, 98, 0.15);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Why choose us */
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--card);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .feature-item:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 8px 25px rgba(0, 119, 182, 0.1);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Testimonials */
+    .testimonial-slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card {
+      flex: 0 0 100%;
+      padding: 0 15px;
+    }
+
+    .testimonial-content {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 40px;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .testimonial-content::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 80px;
+      font-family: Georgia, serif;
+      color: var(--secondary);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .slider-dot.active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    /* Contact form */
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: var(--card);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 4px rgba(0, 119, 182, 0.1);
+    }
+
+    .form-input::placeholder {
+      color: var(--muted);
+    }
+
+    /* Sticky call button */
+    .sticky-call {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--accent), #E66A00);
+      color: white;
+      padding: 16px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(255, 122, 0, 0.4);
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .sticky-call:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(255, 122, 0, 0.5);
+    }
+
+    .sticky-call::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      background: var(--accent);
+      animation: pulse-ring 2s infinite;
+    }
+
+    /* Emergency banner */
+    .emergency-banner {
+      background: linear-gradient(90deg, #C62828, #B71C1C);
+      color: white;
+      padding: 12px 0;
+      overflow: hidden;
+    }
+
+    .emergency-text {
+      display: flex;
+      animation: slideIn 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(135deg, var(--primary), #052A42);
+      color: white;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    /* Rating badge */
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Map container */
+    .map-container {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(10, 61, 98, 0.15);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: white;
+      z-index: 1001;
+      transition: right 0.3s ease;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Section styles */
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Areas served cards */
+    .area-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .area-card:hover {
+      border-color: var(--secondary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 119, 182, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <!-- Emergency Banner -->
+  <div class="emergency-banner">
+    <div class="emergency-text">
+      <span class="flex items-center gap-2 mx-8">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/></svg>
+        24/7 EMERGENCY PLUMBING AVAILABLE
+      </span>
+      <span class="flex items-center gap-2 mx-8">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        CALL NOW: +61 481 068 152
+      </span>
+      <span class="flex items-center gap-2 mx-8">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/></svg>
+        24/7 EMERGENCY PLUMBING AVAILABLE
+      </span>
+      <span class="flex items-center gap-2 mx-8">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        CALL NOW: +61 481 068 152
+      </span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header fixed w-full top-0 z-50" id="header" role="banner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3" aria-label="PRO-PLUMB CBR Home">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#0A3D62] to-[#0077B6] rounded-xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-xl font-bold text-[#0A3D62]" style="font-family: 'Montserrat', sans-serif;">PRO-PLUMB</span>
+            <span class="text-xl font-bold text-[#FF7A00]" style="font-family: 'Montserrat', sans-serif;"> CBR</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-8" role="navigation" aria-label="Main navigation">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#areas" class="nav-link">Service Areas</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="tel:+61481068152" class="flex items-center gap-2 text-[#0A3D62] font-semibold">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            +61 481 068 152
+          </a>
+          <a href="#contact" class="btn-primary">Get a Quote</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="lg:hidden p-2" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6 text-[#0A3D62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold text-[#0A3D62]">Menu</span>
+        <button id="closeMenu" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-4">
+        <a href="#home" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">Home</a>
+        <a href="#about" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">About</a>
+        <a href="#services" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">Services</a>
+        <a href="#reviews" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">Reviews</a>
+        <a href="#areas" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">Service Areas</a>
+        <a href="#contact" class="text-lg font-semibold text-[#0A3D62] py-2 border-b border-gray-100">Contact</a>
+      </div>
+      <div class="mt-8">
+        <a href="tel:+61481068152" class="btn-primary w-full text-center block">Call Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero min-h-screen flex items-center pt-32 pb-20 relative">
+    <div class="hero-pattern"></div>
+    
+    <!-- Floating shapes -->
+    <div class="floating-shape w-32 h-32 top-20 left-10" style="animation-delay: 0s;"></div>
+    <div class="floating-shape w-24 h-24 top-40 right-20" style="animation-delay: 1s;"></div>
+    <div class="floating-shape w-16 h-16 bottom-40 left-1/4" style="animation-delay: 2s;"></div>
+    <div class="floating-shape w-20 h-20 bottom-20 right-1/3" style="animation-delay: 3s;"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-white">
+          <div class="reveal" style="animation: fadeInLeft 0.8s ease forwards;">
+            <div class="rating-badge mb-6">
+              <div class="flex text-yellow-400">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <span class="font-semibold text-gray-800">4.8/5</span>
+              <span class="text-gray-500 text-sm">24 reviews</span>
+            </div>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style="font-family: 'Montserrat', sans-serif; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0;">
+            Trusted Plumbing & Gasfitting Experts in Canberra
+          </h1>
+          
+          <p class="text-xl text-white/90 mb-8 max-w-lg" style="animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0;">
+            Professional, reliable plumbing services available 24/7 across Canberra and NSW. Quality workmanship guaranteed.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 mb-8" style="animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0;">
+            <a href="tel:+61481068152" class="btn-primary flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+              Call Now
+            </a>
+            <a href="#contact" class="btn-secondary flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Request Service
+            </a>
+          </div>
+          
+          <div class="flex items-center gap-6 text-white/80" style="animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0;">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#FF7A00]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Licensed & Insured</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-[#FF7A00]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              <span>24/7 Emergency</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hidden lg:block" style="animation: fadeInRight 1s ease 0.3s forwards; opacity: 0;">
+          <div class="relative">
+            <div class="w-full h-[500px] bg-white/10 rounded-3xl backdrop-blur-sm border border-white/20 overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <svg class="w-32 h-32 mx-auto mb-6 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                  </svg>
+                  <p class="text-2xl font-semibold mb-2">Professional Service</p>
+                  <p class="text-white/70">Quality You Can Trust</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Floating stats cards -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl" style="animation: float 4s ease-in-out infinite;">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">100%</p>
+                  <p class="text-sm text-gray-500">Satisfaction</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-xl" style="animation: float 4s ease-in-out infinite; animation-delay: 1s;">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-gray-800">24/7</p>
+                  <p class="text-sm text-gray-500">Available</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-4 reveal">
+          Our Services
+        </h2>
+        <p class="text-lg text-[#5A6C7D] max-w-2xl mx-auto mt-6 reveal">
+          Comprehensive plumbing and gasfitting solutions for residential and commercial properties across Canberra and NSW.
+        </p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Service Cards -->
+        <div class="service-card reveal" style="transition-delay: 0.1s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Emergency Plumbing</h3>
+          <p class="text-[#5A6C7D]">24/7 emergency response for burst pipes, major leaks, and urgent plumbing issues. Fast, reliable service when you need it most.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.15s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 1 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Blocked Drains</h3>
+          <p class="text-[#5A6C7D]">Professional drain clearing using advanced equipment. We remove blockages quickly and prevent future drainage issues.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.2s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Hot Water Systems</h3>
+          <p class="text-[#5A6C7D]">Installation, repairs, and maintenance for all hot water systems. Ensure reliable hot water for your home or business.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.25s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Leak Detection</h3>
+          <p class="text-[#5A6C7D]">Advanced leak detection technology to find hidden leaks. Save water and prevent structural damage to your property.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.3s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Bathroom Renovations</h3>
+          <p class="text-[#5A6C7D]">Complete bathroom plumbing for renovations and new builds. Transform your bathroom with professional installations.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.35s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Kitchen Plumbing</h3>
+          <p class="text-[#5A6C7D]">Kitchen sink installations, dishwasher connections, and gas appliance fittings. Quality plumbing for your kitchen.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.4s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Gas Fitting</h3>
+          <p class="text-[#5A6C7D]">Licensed gas fitting services for appliances, heating, and installations. Safe and compliant gas work guaranteed.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.45s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Pipe Repairs</h3>
+          <p class="text-[#5A6C7D]">Expert pipe repair and replacement services. Fix damaged pipes and restore proper water flow to your property.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.5s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Toilet Repairs</h3>
+          <p class="text-[#5A6C7D]">Toilet installations, repairs, and unblocking services. Fast solutions for all toilet plumbing problems.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.55s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Tap Repairs</h3>
+          <p class="text-[#5A6C7D]">Tap repairs, replacements, and installations. Fix dripping taps and upgrade your fixtures with quality products.</p>
+        </div>
+        
+        <div class="service-card reveal" style="transition-delay: 0.6s;">
+          <div class="service-icon">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-[#0A3D62] mb-3">Drain Cleaning</h3>
+          <p class="text-[#5A6C7D]">Professional drain cleaning and maintenance. Prevent blockages and keep your drainage system flowing smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal-left">
+          <div class="relative">
+            <div class="bg-gradient-to-br from-[#0A3D62] to-[#0077B6] rounded-3xl p-8 lg:p-12">
+              <div class="text-white">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold">James (Jimmy) Cairns</h3>
+                    <p class="text-white/70">Licensed Plumber & Gasfitter</p>
+                  </div>
+                </div>
+                <p class="text-white/80 text-lg leading-relaxed">
+                  With years of hands-on experience in residential and commercial plumbing, Jimmy leads the PRO-PLUMB CBR team with dedication to quality workmanship and customer satisfaction.
+                </p>
+              </div>
+            </div>
+            
+            <div class="absolute -bottom-6 -right-6 bg-[#FF7A00] text-white rounded-2xl p-6 shadow-xl" style="animation: float 4s ease-in-out infinite;">
+              <p class="text-4xl font-bold">10+</p>
+              <p class="text-white/80">Years Experience</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reveal-right">
+          <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-6">
+            About PRO-PLUMB CBR
+          </h2>
+          <p class="text-lg text-[#5A6C7D] mb-6 mt-8">
+            PRO-PLUMB CBR is a trusted plumbing and gas fitting service provider in Canberra and surrounding NSW areas. With years of experience in residential plumbing, renovations, and emergency repairs, we have built a strong reputation for reliability, quality workmanship, and customer satisfaction.
+          </p>
+          <p class="text-lg text-[#5A6C7D] mb-8">
+            Led by experienced plumber James (Jimmy) Cairns, PRO-PLUMB CBR delivers professional plumbing solutions while maintaining honest communication and excellent service. We treat every job with the same level of care and attention, whether it's a simple tap repair or a complete bathroom renovation.
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#FF7A00] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span class="font-semibold text-[#0A3D62]">Fully Licensed & Insured</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#FF7A00] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span class="font-semibold text-[#0A3D62]">Quality Guaranteed</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#FF7A00] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span class="font-semibold text-[#0A3D62]">Competitive Pricing</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#FF7A00] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span class="font-semibold text-[#0A3D62]">Free Quotes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-20 lg:py-28 bg-gradient-to-br from-[#0A3D62] to-[#052A42] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 reveal">
+          Why Choose PRO-PLUMB CBR
+        </h2>
+        <p class="text-lg text-white/70 max-w-2xl mx-auto reveal">
+          We're committed to providing the highest quality plumbing services with integrity and professionalism.
+        </p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="feature-item reveal" style="transition-delay: 0.1s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">Licensed & Experienced</h3>
+            <p class="text-[#5A6C7D] text-sm">Fully qualified plumbers with extensive industry experience.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item reveal" style="transition-delay: 0.15s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">24/7 Emergency Services</h3>
+            <p class="text-[#5A6C7D] text-sm">Available around the clock for urgent plumbing emergencies.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item reveal" style="transition-delay: 0.2s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">Reliable & Punctual</h3>
+            <p class="text-[#5A6C7D] text-sm">We arrive on time and complete jobs efficiently.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item reveal" style="transition-delay: 0.25s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">Quality Workmanship</h3>
+            <p class="text-[#5A6C7D] text-sm">High standards on every job, big or small.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item reveal" style="transition-delay: 0.3s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">Friendly Customer Service</h3>
+            <p class="text-[#5A6C7D] text-sm">Professional and approachable team ready to help.</p>
+          </div>
+        </div>
+        
+        <div class="feature-item reveal" style="transition-delay: 0.35s;">
+          <div class="feature-icon">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0A3D62]">Trusted by Canberra</h3>
+            <p class="text-[#5A6C7D] text-sm">Excellent reviews from satisfied local customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-4 reveal">
+          Customer Reviews
+        </h2>
+        <p class="text-lg text-[#5A6C7D] max-w-2xl mx-auto mt-6 reveal">
+          See what our satisfied customers have to say about our plumbing services.
+        </p>
+        
+        <div class="flex justify-center mt-8 reveal">
+          <div class="rating-badge">
+            <div class="flex text-yellow-400">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span class="font-bold text-gray-800">4.8/5</span>
+            <span class="text-gray-500">Based on 24 reviews</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-slider reveal">
+        <div class="testimonial-track" id="testimonialTrack">
+          <!-- Testimonials will be inserted by JS -->
+        </div>
+        
+        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Testimonial navigation">
+          <!-- Dots will be inserted by JS -->
+        </div>
+        
+        <div class="flex justify-center gap-4 mt-6">
+          <button id="prevBtn" class="w-12 h-12 rounded-full bg-white border-2 border-[#0A3D62] text-[#0A3D62] flex items-center justify-center hover:bg-[#0A3D62] hover:text-white transition-colors" aria-label="Previous testimonial">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="nextBtn" class="w-12 h-12 rounded-full bg-white border-2 border-[#0A3D62] text-[#0A3D62] flex items-center justify-center hover:bg-[#0A3D62] hover:text-white transition-colors" aria-label="Next testimonial">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Section -->
+  <section id="areas" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal-left">
+          <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-6">
+            Service Areas
+          </h2>
+          <p class="text-lg text-[#5A6C7D] mb-8 mt-8">
+            We proudly serve homeowners and businesses across Canberra and nearby NSW areas with fast and reliable plumbing services. No matter where you are in our service region, we're just a phone call away.
+          </p>
+          
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="area-card">
+              <div class="w-12 h-12 bg-[#0077B6] rounded-xl flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-[#0A3D62]">Canberra</h3>
+              <p class="text-sm text-[#5A6C7D]">All suburbs</p>
+            </div>
+            
+            <div class="area-card">
+              <div class="w-12 h-12 bg-[#0077B6] rounded-xl flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-[#0A3D62]">ACT</h3>
+              <p class="text-sm text-[#5A6C7D]">Australian Capital Territory</p>
+            </div>
+            
+            <div class="area-card">
+              <div class="w-12 h-12 bg-[#0077B6] rounded-xl flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-[#0A3D62]">New South Wales</h3>
+              <p class="text-sm text-[#5A6C7D]">Surrounding regions</p>
+            </div>
+            
+            <div class="area-card">
+              <div class="w-12 h-12 bg-[#FF7A00] rounded-xl flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <h3 class="font-bold text-[#0A3D62]">Fast Response</h3>
+              <p class="text-sm text-[#5A6C7D]">Same-day service available</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reveal-right">
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207344.54076069472!2d149.0600795!3d-35.2812976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d489e4e8fd5%3A0x500e61744fc4e40!2sCanberra%20ACT!5e0!3m2!1sen!2sau!4v1699887661234!5m2!1sen!2sau" 
+              width="100%" 
+              height="400" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="PRO-PLUMB CBR Service Area Map"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="section-title text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A3D62] mb-4 reveal">
+          Get In Touch
+        </h2>
+        <p class="text-lg text-[#5A6C7D] max-w-2xl mx-auto mt-6 reveal">
+          Ready to get started? Contact us today for a free quote or to schedule your plumbing service.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-3xl p-8 shadow-xl border border-[#E2E8F0] reveal-left">
+          <h3 class="text-2xl font-bold text-[#0A3D62] mb-6">Request a Service</h3>
+          
+          <form id="contactForm" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-[#0A3D62] mb-2">Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-[#0A3D62] mb-2">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Your phone number" required>
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold text-[#0A3D62] mb-2">Email</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="Your email address" required>
+            </div>
+            
+            <div>
+              <label for="service" class="block text-sm font-semibold text-[#0A3D62] mb-2">Service Needed</label>
+              <select id="service" name="service" class="form-input" required>
+                <option value="">Select a service</option>
+                <option value="emergency">Emergency Plumbing</option>
+                <option value="blocked-drains">Blocked Drains</option>
+                <option value="hot-water">Hot Water System</option>
+                <option value="leak-detection">Leak Detection</option>
+                <option value="bathroom">Bathroom Renovation</option>
+                <option value="kitchen">Kitchen Plumbing</option>
+                <option value="gas-fitting">Gas Fitting</option>
+                <option value="pipe-repair">Pipe Repairs</option>
+                <option value="toilet">Toilet Repairs</option>
+                <option value="tap">Tap Repairs</option>
+                <option value="drain-cleaning">Drain Cleaning</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-semibold text-[#0A3D62] mb-2">Message</label>
+              <textarea id="message" name="message" rows="4" class="form-input" placeholder="Tell us about your plumbing needs" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-primary w-full flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              Send Request
+            </button>
+          </form>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="reveal-right">
+          <div class="bg-gradient-to-br from-[#0A3D62] to-[#0077B6] rounded-3xl p-8 text-white h-full">
+            <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+            
+            <div class="space-y-6">
+              <a href="tel:+61481068152" class="flex items-center gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">
+                <div class="w-12 h-12 bg-[#FF7A00] rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                </div>
+                <div>
+                  <p class="text-white/70 text-sm">Call Us Anytime</p>
+                  <p class="text-xl font-bold">+61 481 068 152</p>
+                </div>
+              </a>
+              
+              <a href="mailto:jcairns@proplumbcbr.com" class="flex items-center gap-4 p-4 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">
+                <div class="w-12 h-12 bg-[#FF7A00] rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                </div>
+                <div>
+                  <p class="text-white/70 text-sm">Email Us</p>
+                  <p class="text-lg font-semibold">jcairns@proplumbcbr.com</p>
+                </div>
+              </a>
+              
+              <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                <div class="w-12 h-12 bg-[#FF7A00] rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <p class="text-white/70 text-sm">Service Area</p>
+                  <p class="text-lg font-semibold">Canberra & NSW</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                <div class="w-12 h-12 bg-[#FF7A00] rounded-xl flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <p class="text-white/70 text-sm">Hours</p>
+                  <p class="text-lg font-semibold">24/7 Emergency Service</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-white/20">
+              <p class="text-white/70 mb-4">Follow Us</p>
+              <div class="flex gap-4">
+                <a href="https://www.instagram.com/pro.plumbcbr" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#FF7A00] transition-colors" aria-label="Follow us on Instagram">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@pro.plumbcbr" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#FF7A00] transition-colors" aria-label="Follow us on TikTok">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-xl font-bold text-white">PRO-PLUMB</span>
+              <span class="text-xl font-bold text-[#FF7A00]"> CBR</span>
+            </div>
+          </div>
+          <p class="text-white/70 mb-4">Professional plumbing and gasfitting services across Canberra and NSW. Available 24/7 for all your plumbing needs.</p>
+          <div class="flex gap-3">
+            <a href="https://www.instagram.com/pro.plumbcbr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF7A00] transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@pro.plumbcbr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-[#FF7A00] transition-colors" aria-label="TikTok">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#about" class="footer-link">About Us</a></li>
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#reviews" class="footer-link">Reviews</a></li>
+            <li><a href="#areas" class="footer-link">Service Areas</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#services" class="footer-link">Emergency Plumbing</a></li>
+            <li><a href="#services" class="footer-link">Blocked Drains</a></li>
+            <li><a href="#services" class="footer-link">Hot Water Systems</a></li>
+            <li><a href="#services" class="footer-link">Gas Fitting</a></li>
+            <li><a href="#services" class="footer-link">Bathroom Renovations</a></li>
+            <li><a href="#services" class="footer-link">Leak Detection</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="text-lg font-bold text-white mb-4">Contact Us</h4>
+          <ul class="space-y-4">
+            <li>
+              <a href="tel:+61481068152" class="flex items-center gap-3 text-white/70 hover:text-[#FF7A00] transition-colors">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                +61 481 068 152
+              </a>
+            </li>
+            <li>
+              <a href="mailto:jcairns@proplumbcbr.com" class="flex items-center gap-3 text-white/70 hover:text-[#FF7A00] transition-colors">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                jcairns@proplumbcbr.com
+              </a>
+            </li>
+            <li class="flex items-center gap-3 text-white/70">
+              <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+              Canberra & NSW, Australia
+            </li>
+            <li class="flex items-center gap-3 text-white/70">
+              <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              24/7 Emergency Service
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-white/50 text-sm">2026 PRO-PLUMB CBR. All Rights Reserved.</p>
+          <p class="text-white/50 text-sm">Licensed Plumbing & Gasfitting Services</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Call Button -->
+  <a href="tel:+61481068152" class="sticky-call" aria-label="Call PRO-PLUMB CBR">
+    <svg class="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+    <span class="relative z-10 hidden sm:inline">Call Now</span>
+  </a>
+
+  <script>
+    // Initialize data first
+    const testimonials = [
+      {
+        name: "Sophie",
+        text: "Jimmy/James is a delight as well as a great plumber. Our renovation went on and on but he turned up when needed, sometimes at a moment's notice, including after hours to try get the kitchen functional. Always reliable and full of good humour."
+      },
+      {
+        name: "Peter Ward",
+        text: "I found James to be knowledgeable in all aspects of plumbing. He arrived on time and completed the tasks efficiently. I highly recommend Pro-Plumb CBR services."
+      },
+      {
+        name: "Lauren Beech",
+        text: "Highly recommend Jimmy for your plumbing needs. He worked on our kitchen renovation and did exceptional quality work."
+      },
+      {
+        name: "Wendy Price",
+        text: "Jimmy at Pro-Plumb is an amazing plumber. He cares about customers and always finds a solution. Highly recommended."
+      },
+      {
+        name: "Louise Thomas",
+        text: "James renovated our two bathrooms, laundry and kitchen and did an amazing job."
+      },
+      {
+        name: "Andrew McDermott",
+        text: "James came out at short notice to unblock a drain and fixed another leaking tap as well. Very polite and professional."
+      }
+    ];
+
+    // DOM Elements
+    const header = document.getElementById('header');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const sliderDots = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const contactForm = document.getElementById('contactForm');
+
+    // State
+    let currentSlide = 0;
+    let autoSlideInterval = null;
+
+    // Header scroll effect
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Mobile menu
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      mobileOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', openMobileMenu);
+    closeMenu.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu on link click
+    document.querySelectorAll('.mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Testimonial Slider
+    function initSlider() {
+      // Build testimonial cards
+      testimonialTrack.innerHTML = testimonials.map(function(t, i) {
+        return '<div class="testimonial-card">' +
+          '<div class="testimonial-content">' +
+            '<p class="text-lg text-[#5A6C7D] mb-6 relative z-10">' + t.text + '</p>' +
+            '<div class="flex items-center gap-4">' +
+              '<div class="w-12 h-12 bg-gradient-to-br from-[#0A3D62] to-[#0077B6] rounded-full flex items-center justify-center text-white font-bold">' +
+                t.name.charAt(0) +
+              '</div>' +
+              '<div>' +
+                '<p class="font-bold text-[#0A3D62]">' + t.name + '</p>' +
+                '<div class="flex text-yellow-400">' +
+                  Array(5).fill('').map(function() {
+                    return '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>';
+                  }).join('') +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Build dots
+      sliderDots.innerHTML = testimonials.map(function(_, i) {
+        return '<button class="slider-dot ' + (i === 0 ? 'active' : '') + '" data-index="' + i + '" aria-label="Go to testimonial ' + (i + 1) + '" role="tab"></button>';
+      }).join('');
+
+      // Add dot click handlers
+      document.querySelectorAll('.slider-dot').forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(this.dataset.index));
+        });
+      });
+
+      startAutoSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      if (currentSlide >= testimonials.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = testimonials.length - 1;
+
+      testimonialTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+
+      document.querySelectorAll('.slider-dot').forEach(function(dot, i) {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+      }
+    }
+
+    prevBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', function() {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+
+    // Scroll reveal animation
+    function initScrollReveal() {
+      var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      reveals.forEach(function(el) {
+        observer.observe(el);
+      });
+    }
+
+    // Form submission
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var formData = new FormData(this);
+      var data = {};
+      formData.forEach(function(value, key) {
+        data[key] = value;
+      });
+
+      // Show success message
+      var btn = this.querySelector('button[type="submit"]');
+      var originalText = btn.innerHTML;
+      btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Sending...';
+      btn.disabled = true;
+
+      setTimeout(function() {
+        btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Message Sent!';
+        btn.classList.remove('bg-gradient-to-r', 'from-[#FF7A00]', 'to-[#E66A00]');
+        btn.classList.add('bg-green-500');
+
+        setTimeout(function() {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          btn.classList.remove('bg-green-500');
+          contactForm.reset();
+        }, 3000);
+      }, 1500);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        var target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          var headerOffset = 100;
+          var elementPosition = target.getBoundingClientRect().top;
+          var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+      initSlider();
+      initScrollReveal();
+      handleScroll();
+    });
+
+    // Keyboard navigation for slider
+    document.addEventListener('keydown', function(e) {
+      if (document.activeElement === prevBtn || document.activeElement === nextBtn) {
+        if (e.key === 'ArrowLeft') {
+          stopAutoSlide();
+          prevSlide();
+          startAutoSlide();
+        } else if (e.key === 'ArrowRight') {
+          stopAutoSlide();
+          nextSlide();
+          startAutoSlide();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
